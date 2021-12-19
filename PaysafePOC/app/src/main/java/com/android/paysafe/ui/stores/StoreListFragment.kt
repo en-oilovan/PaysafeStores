@@ -16,6 +16,7 @@ class StoreListFragment : Fragment() {
 
     private val viewModel: StoreListViewModel by viewModel()
     private lateinit var binding: StoreListFragmentBinding
+    private val adapter = StoreListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +29,11 @@ class StoreListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.stores.observe(viewLifecycleOwner) {
+        binding.storesList.adapter = adapter
 
+        viewModel.getStores()
+        viewModel.stores.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
         }
     }
 }

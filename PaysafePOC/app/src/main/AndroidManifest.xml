@@ -7,13 +7,14 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
+        android:name=".PaysafeApp"
         android:allowBackup="true"
+        android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PaysafePOC"
-        android:fullBackupContent="">
+        android:theme="@style/Theme.PaysafePOC">
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

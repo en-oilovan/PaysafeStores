@@ -1,4 +1,4 @@
-package com.android.paysafe
+package com.android.paysafe.utils
 
 const val TIMEOUT = 30L
 const val SERVER_DATE_FORMAT = ""

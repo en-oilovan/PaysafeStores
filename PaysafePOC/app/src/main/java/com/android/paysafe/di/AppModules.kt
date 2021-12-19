@@ -1,20 +1,23 @@
 package com.android.paysafe.di
 
-import com.android.paysafe.SERVER_DATE_FORMAT
-import com.android.paysafe.TIMEOUT
+import com.android.paysafe.BuildConfig
+import com.android.paysafe.utils.SERVER_DATE_FORMAT
+import com.android.paysafe.utils.TIMEOUT
 import com.android.paysafe.remote.StoreApi
 import com.android.paysafe.remote.StoreRepository
 import com.android.paysafe.ui.stores.StoreListViewModel
 import com.google.gson.GsonBuilder
+import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.BuildConfig
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
+import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 object AppModules {
@@ -45,16 +48,14 @@ object AppModules {
                 .readTimeout(TIMEOUT, TimeUnit.SECONDS)
                 .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
                 .addInterceptor(httpLoggingInterceptor)
-                //.addInterceptor(authInterceptor)
                 .build()
 
         fun provideRetrofit(client: OkHttpClient): Retrofit {
-            //val scheduler = Schedulers.from(Executors.newCachedThreadPool())
-
+            val scheduler = Schedulers.from(Executors.newCachedThreadPool())
             val gson = GsonBuilder().setDateFormat(SERVER_DATE_FORMAT).create()
 
             return Retrofit.Builder()
-                //.addCallAdapterFactory(RxJava3CallAdapterFactory.createWithScheduler(scheduler))
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.createWithScheduler(scheduler))
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .baseUrl(BuildConfig.BASE_URL)
                 .client(client)
@@ -67,5 +68,5 @@ object AppModules {
         single { provideRetrofit(get()) }
     }
 
-    val appModules = listOf(repositoryModule, apiModule, retrofitModule)
+    val appModules = listOf(viewModelModule, repositoryModule, apiModule, retrofitModule)
 }
