@@ -1,8 +1,6 @@
-package com.android.paysafe.remote
+package com.android.paysafe.data
 
-import com.android.paysafe.remote.model.StoreModel
-import com.android.paysafe.remote.model.StoresResponse
-import io.reactivex.rxjava3.core.Completable
+import com.android.paysafe.data.model.StoresResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

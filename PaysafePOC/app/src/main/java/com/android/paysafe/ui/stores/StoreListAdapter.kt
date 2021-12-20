@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.paysafe.databinding.ItemStoreBinding
-import com.android.paysafe.model.Store
+import com.android.paysafe.ui.stores.model.Store
 
 class StoreListAdapter : ListAdapter<Store, StoreListAdapter.StoreViewHolder>(DIFF_CALLBACK) {
 
@@ -15,7 +15,7 @@ class StoreListAdapter : ListAdapter<Store, StoreListAdapter.StoreViewHolder>(DI
         @SuppressLint("SetTextI18n")
         fun bind(store: Store) {
             binding.storeName.text = store.name
-            binding.storeAddress.text = "${store.address}, ${store.postalCode}, ${store.city}"
+            binding.storeAddress.text = "${store.address}, ${store.city}, ${store.postalCode}"
         }
     }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/oilovan/Documents/GitHub/PaysafeStores/PaysafePOC/app/src/main/res/layout/activity_main.xml" value="0.121875" />
+        <entry key="..\:/Users/oilovan/Documents/GitHub/PaysafeStores/PaysafePOC/app/src/main/res/layout/item_store.xml" value="0.2" />
+        <entry key="..\:/Users/oilovan/Documents/GitHub/PaysafeStores/PaysafePOC/app/src/main/res/layout/main_activity.xml" value="0.121875" />
+        <entry key="..\:/Users/oilovan/Documents/GitHub/PaysafeStores/PaysafePOC/app/src/main/res/layout/main_fragment.xml" value="0.121875" />
+        <entry key="..\:/Users/oilovan/Documents/GitHub/PaysafeStores/PaysafePOC/app/src/main/res/layout/store_list_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/oilovan/Documents/GitHub/PaysafeStores/PaysafePOC/app/src/main/res/xml/network_security_config.xml" value="0.109375" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

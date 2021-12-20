@@ -45,13 +45,17 @@ dependencies {
 
     implementation "com.jakewharton.timber:timber:5.0.1"
     implementation "io.insert-koin:koin-android:3.1.4"
-    implementation "com.google.code.gson:gson:2.8.9"
+    implementation "com.google.android.gms:play-services-location:19.0.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
 
     def retrofitVer = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVer"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVer"
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVer"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+    implementation("com.squareup.retrofit2:converter-simplexml:$retrofitVer") {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
 
     def rxVer = "3.0.0"
     implementation "io.reactivex.rxjava3:rxandroid:$rxVer"

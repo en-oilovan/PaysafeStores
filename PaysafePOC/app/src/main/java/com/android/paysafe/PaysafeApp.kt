@@ -18,7 +18,7 @@ class PaysafeApp: Application() {
         }
 
         startKoin {
-            androidLogger(Level.DEBUG)
+            androidLogger(Level.ERROR)
             androidContext(this@PaysafeApp)
             modules(AppModules.appModules)
         }
